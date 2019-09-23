@@ -1,0 +1,22 @@
+""" need to write a function where after tracking all the words of a file, prints out all the words not containg any particular letters based on input"""
+
+myfile = open("words.txt")
+line = myfile.readline()
+
+def avoids(word,letter):
+  word = line.strip()
+  for char in word:
+    if char in letter:
+      return False
+  return True
+
+excluded_letter=input("input excluded letter :")
+count = 0
+
+for line in myfile:
+  word = line.strip()
+  if avoids(word,excluded_letter):			#if avoids(word,excluded_letter) == True:
+    count+=1
+    print(word)
+
+print("count :",count)

@@ -1,0 +1,21 @@
+"""need to write a function which prints out words containing a required set of letters from a file """
+
+
+myfile = open ("words.txt")
+line = myfile.readline()
+
+def uses_all(word,letters):
+  for char in letters:
+    if char not in word:
+      return False
+  return True
+
+count = 0
+required_letters=input("required letters :")
+for line in myfile:
+  word = line.strip()
+  if uses_all(word,required_letters):			#if uses_all(word,required_letters) == True:
+    count +=1
+    print(word)
+
+print("count :",count)

@@ -1,0 +1,19 @@
+"""need to write a function which tracks all the words of file and prints out required words which only contains particular letters"""
+
+myfile = open ("words.txt")
+line = myfile.readline()
+
+def uses_only(word,letter):
+  for char in word:
+    if char not in letter:
+      return False
+  return True
+
+count=0
+for line in myfile:
+  word = line.strip()
+  if (uses_only(word,"acefhlo")):			#if (uses_only(word,"acefhlo")) == True:
+    count +=1
+    print(word)
+
+print("count :",count)

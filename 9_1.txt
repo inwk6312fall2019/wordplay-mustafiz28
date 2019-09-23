@@ -1,0 +1,13 @@
+9.1
+""" need to implement a code which will read a particular file ("words.txt) and print out the words containing more than
+20 characters without any whitespace """
+
+#mustafiz@mustafiz-VirtualBox:~/mustafiz$ nano 9_1.py
+
+myfile = open('words.txt')
+for line in myfile:
+    word = line.strip()
+    if len(word) > 20:				#if len(word) > 20 == True:	
+        print(word)
+
+#mustafiz@mustafiz-VirtualBox:~/mustafiz$ python3 9_1.py

@@ -1,0 +1,22 @@
+"""need to write a funtion which tracks all words from a file and will print out words containing letters in a ascending order """
+
+def is_abecedarian(word):
+    previous_letter = word[0]
+    for letter in word:
+        if ord(letter) < ord(previous_letter):
+            return False
+        previous_letter = letter
+    return True
+
+
+myfile = open('words.txt')
+line = myfile.readline()
+count = 0
+
+for line in myfile:
+    word = line.strip()
+    if is_abecedarian(word):		#if is_abecedarian(word) == True:
+        print(word)
+        count += 1
+
+print("count :",count)

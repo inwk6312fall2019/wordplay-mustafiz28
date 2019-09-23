@@ -1,0 +1,26 @@
+"""need to write a function which sorts out only those words containing two consecutive lettes three times from a file"""
+
+myfile = open('words.txt')
+line = myfile.readline()
+
+def is_triple_double(word):
+    count = 0
+    index = 0
+    while index < len(word) - 1:
+        if word[index] == word[index + 1]:
+            count += 1
+            if count == 3:
+              return True
+            index += 2
+        else:
+            count = 0
+            index += 1
+
+total_count = 0
+for line in myfile:
+    word = line.strip()
+    if is_triple_double(word):			#if is_triple_double(word) == True:
+        print(word)
+        total_count += 1
+
+print("total count :",total_count)
