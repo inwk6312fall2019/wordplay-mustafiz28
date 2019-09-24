@@ -1,28 +1,29 @@
-""" need to write a function called has_no_e that returns True if the given word doesnít have the letter ìeî in it. then 
+""" need to write a function called has_no_e that returns True if the given word doesn‚Äôt have the letter ‚Äúe‚Äù in it. then 
 need to compute the percentage of the words in the file ("words.txt) having no e in it """
 
 #mustafiz@mustafiz-VirtualBox:~/mustafiz$ nano 9_2.py
 
 myfile = open ("words.txt")
 line = myfile.readline()
+words_without_e = 0
+total_words = 0
 
 def has_no_e(word):
-	for char in word:
-		if char  in 'Ee':
-			return False
-	return True
-
-count = 0
-word_number = 113809 		
+  for char in word:
+    if char in "Ee":		
+      return False
+  return True
 
 for line in myfile:
-	word = line.strip()
-	if has_no_e(word):				#if has_no_e(word) == True:
-		count +=1
-		print(word)
+  word = line.strip()
+  total_words += 1
+  if has_no_e(word):		#if has_no_e == True:
+    words_without_e +=1
+    print(word)
 
-print("word without containing e :",count)
-percentage =(count/word_number)*100
-print("Percentage :",percentage)
+
+percentage = (words_without_e/total_words)*100
+print("number of words without E/e :", words_without_e)
+print("percentage of words without E/e:", percentage)
 
 #mustafiz@mustafiz-VirtualBox:~/mustafiz$ python3 9_2.py
