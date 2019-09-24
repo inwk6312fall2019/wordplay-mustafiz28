@@ -1,0 +1,22 @@
+myfile = open ("words.txt")
+line = myfile.readline()
+words_without_e = 0
+total_words = 0
+
+def has_no_e(word):
+  for char in word:
+    if char in "Ee":
+      return False
+  return True
+
+for line in myfile:
+  word = line.strip()
+  total_words += 1
+  if has_no_e(word):
+    words_without_e +=1
+    print(word)
+
+
+percentage = (words_without_e/total_words)*100
+print("number of words without E/e :", words_without_e)
+print("percentage of words without E/e:", percentage)
